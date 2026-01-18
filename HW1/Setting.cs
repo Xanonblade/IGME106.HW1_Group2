@@ -13,6 +13,11 @@ namespace HW1
         private string timePeriod;
 
         // Constructor
+        /// <summary>
+        /// Constructs setting with corresponding location and timePeriod
+        /// </summary>
+        /// <param name="location">Location of setting</param>
+        /// <param name="timePeriod">The year that the location is set in</param>
         public Setting(string location, string timePeriod)
         {
             this.location = location;

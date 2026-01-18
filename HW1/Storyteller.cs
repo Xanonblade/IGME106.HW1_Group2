@@ -26,49 +26,105 @@ namespace HW1
         /// </summary>
         public void ReadFile()
         {
-            StreamReader sr = new StreamReader("../../../Setting.txt");
+            StreamReader sr;
             string line = "";
 
-            // Read Settings
-            while ((line = sr.ReadLine()!) != null)
+            sr = new StreamReader("../../../Setting.txt");
+            try
             {
-                string location = line.Substring(0, line.IndexOf('|'));
-                string timePeriod = line.Substring(line.IndexOf('|') + 1);
-                settings.Add(new Setting(location, timePeriod));
+                // Read Settings
+                while ((line = sr.ReadLine()!) != null)
+                {
+                    string location = line.Substring(0, line.IndexOf('|'));
+                    string timePeriod = line.Substring(line.IndexOf('|') + 1);
+                    settings.Add(new Setting(location, timePeriod));
+                }
             }
-            sr.Close();
+            catch (Exception e)
+            {
+                Console.WriteLine("Error reading Setting: " + e.Message);
+            }
+            finally
+            {
+                if (sr != null!)
+                {
+                    sr.Close();
+                }
+            }
 
             sr = new StreamReader("../../../Actor.txt");
-            // Read Actors
-            while ((line = sr.ReadLine()!) != null)
+            try
             {
-                string name = line.Substring(0, line.IndexOf('|'));
-                line = line.Substring(line.IndexOf('|') + 1);
-                string age = line.Substring(0, line.IndexOf('|'));
-                line = line.Substring(line.IndexOf('|') + 1);
-                string profession = line;
+                
+                // Read Actors
+                while ((line = sr.ReadLine()!) != null)
+                {
+                    string name = line.Substring(0, line.IndexOf('|'));
+                    line = line.Substring(line.IndexOf('|') + 1);
+                    string age = line.Substring(0, line.IndexOf('|'));
+                    line = line.Substring(line.IndexOf('|') + 1);
+                    string profession = line;
 
-                actors.Add(new Actor(name, profession, age));
+                    actors.Add(new Actor(name, age, profession));
+                }
+                
             }
-            sr.Close();
+            catch (Exception e)
+            {
+                Console.WriteLine("Error reading Actor: " + e.Message);
+            }
+            finally
+            {
+                if (sr != null!)
+                {
+                    sr.Close();
+                }
+            }
 
             sr = new StreamReader("../../../Conflict.txt");
-            // Read conflict
-            while ((line = sr.ReadLine()!) != null)
+            try
             {
-                conflicts.Add(new Conflict(line));
+                // Read conflict
+                while ((line = sr.ReadLine()!) != null)
+                {
+                    conflicts.Add(new Conflict(line));
+                }
             }
-            sr.Close();
+            catch (Exception e)
+            {
+                Console.WriteLine("Error reading Conflict: " + e.Message);
+            }
+            finally
+            {
+                if (sr != null!)
+                {
+                    sr.Close();
+                }
+            }
 
             sr = new StreamReader("../../../Resolution.txt");
-            // Read Resolution
-            while ((line = sr.ReadLine()!) != null)
+            try
             {
-                string type = line.Substring(0, line.IndexOf('|'));
-                string solution = line.Substring(line.IndexOf('|') + 1);
-                resolutions.Add(new Resolution(type, solution));
+                // Read Resolution
+                while ((line = sr.ReadLine()!) != null)
+                {
+                    string type = line.Substring(0, line.IndexOf('|'));
+                    string solution = line.Substring(line.IndexOf('|') + 1);
+                    resolutions.Add(new Resolution(type, solution));
+                }
             }
-            sr.Close();
+            catch (Exception e)
+            {
+                Console.WriteLine("Error reading Resolution: " + e.Message);
+            }
+            finally
+            {
+                if (sr != null!)
+                {
+                    sr.Close();
+                }
+            }
+
         }
 
         /// <summary>
@@ -80,8 +136,15 @@ namespace HW1
             // Select random elements from each list and print the story
             Random rand = new Random();
             Setting setting = settings[rand.Next(settings.Count)];
-            Actor char1 = actors[rand.Next(actors.Count)];
-            Actor char2 = actors[rand.Next(actors.Count)];
+            // Ensure char1 and char2 are different
+            int index1 = rand.Next(actors.Count);
+            Actor char1 = actors[index1];
+            int index2 = rand.Next(actors.Count);
+            while (index2 == index1)
+                index2 = rand.Next(actors.Count);
+
+            Actor char2 = actors[index2];
+
             Conflict conflict = conflicts[rand.Next(conflicts.Count)];
             foreach (Resolution res in resolutions)
             {
