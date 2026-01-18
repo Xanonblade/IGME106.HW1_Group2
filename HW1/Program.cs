@@ -78,6 +78,7 @@ namespace HW1
                 string continueInput = Console.ReadLine()!.ToLower();
                 if (continueInput == "no")
                     running = false;
+                Console.WriteLine();
             }
         }
     }
