@@ -75,7 +75,7 @@ namespace HW1
                             ending = "romantic";
                         else if (endingType == 4)
                             ending = "funny";
-                        else if (endingType == 5)
+                        else
                             ending = "twist";
                         // Run print method with 'ending' parameter
                         Console.WriteLine();

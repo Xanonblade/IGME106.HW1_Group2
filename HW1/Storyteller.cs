@@ -6,11 +6,13 @@ namespace HW1
 {
     internal class Storyteller
     {
+        // Fields
         private List<Setting> settings;
         private List<Actor> actors;
         private List<Conflict> conflicts;
         private List<Resolution> resolutions;
 
+        // Constructor
         public Storyteller()
         {
             settings = new List<Setting>();
@@ -19,51 +21,84 @@ namespace HW1
             resolutions = new List<Resolution>();
         }
 
+        /// <summary>
+        /// Reads all of the files and stores their information in a corresponding list
+        /// </summary>
         public void ReadFile()
         {
-            StreamReader sr = new StreamReader("../../../Setting.txt");
+            StreamReader sr;
             string line = "";
-
-            // Read Settings
-            while ((line = sr.ReadLine()!) != null)
+            try
             {
-                string location = line.Substring(0, line.IndexOf('|'));
-                string timePeriod = line.Substring(line.IndexOf('|') + 1);
-                settings.Add(new Setting(location, timePeriod));
-            }
-            sr.Close();
+                sr = new StreamReader("../../../Setting.txt");
 
-            sr = new StreamReader("../../../Actor.txt");
-            // Read Actors
-            while ((line = sr.ReadLine()!) != null)
+                // Read Settings
+                while ((line = sr.ReadLine()!) != null)
+                {
+                    string location = line.Substring(0, line.IndexOf('|'));
+                    string timePeriod = line.Substring(line.IndexOf('|') + 1);
+                    settings.Add(new Setting(location, timePeriod));
+                }
+                sr.Close();
+            }
+            catch (Exception e)
             {
-                string name = line.Substring(0, line.IndexOf('|'));
-                line = line.Substring(line.IndexOf('|') + 1);
-                string age = line.Substring(0, line.IndexOf('|'));
-                line = line.Substring(line.IndexOf('|') + 1);
-                string profession = line;
-
-                actors.Add(new Actor(name, profession, age));
+                Console.WriteLine("Error reading Setting: " + e.Message);
             }
-            sr.Close();
-
-            sr = new StreamReader("../../../Conflict.txt");
-            // Read conflict
-            while ((line = sr.ReadLine()!) != null)
+            
+            try
             {
-                conflicts.Add(new Conflict(line));
-            }
-            sr.Close();
+                sr = new StreamReader("../../../Actor.txt");
+                // Read Actors
+                while ((line = sr.ReadLine()!) != null)
+                {
+                    string name = line.Substring(0, line.IndexOf('|'));
+                    line = line.Substring(line.IndexOf('|') + 1);
+                    string age = line.Substring(0, line.IndexOf('|'));
+                    line = line.Substring(line.IndexOf('|') + 1);
+                    string profession = line;
 
-            sr = new StreamReader("../../../Resolution.txt");
-            // Read Resolution
-            while ((line = sr.ReadLine()!) != null)
-            {
-                string type = line.Substring(0, line.IndexOf('|'));
-                string solution = line.Substring(line.IndexOf('|') + 1);
-                resolutions.Add(new Resolution(type, solution));
+                    actors.Add(new Actor(name, profession, age));
+                }
+                sr.Close();
             }
-            sr.Close();
+            catch (Exception e)
+            {
+                Console.WriteLine("Error reading Actor: " + e.Message);
+            }
+
+            try
+            {
+                sr = new StreamReader("../../../Conflict.txt");
+                // Read conflict
+                while ((line = sr.ReadLine()!) != null)
+                {
+                    conflicts.Add(new Conflict(line));
+                }
+                sr.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error reading Conflict: " + e.Message);
+            }
+
+            try
+            {
+                sr = new StreamReader("../../../Resolution.txt");
+                // Read Resolution
+                while ((line = sr.ReadLine()!) != null)
+                {
+                    string type = line.Substring(0, line.IndexOf('|'));
+                    string solution = line.Substring(line.IndexOf('|') + 1);
+                    resolutions.Add(new Resolution(type, solution));
+                }
+                sr.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error reading Resolution: " + e.Message);
+            }
+
         }
 
         /// <summary>
@@ -84,8 +119,8 @@ namespace HW1
                 {
                     Console.WriteLine("Once upon a time in " + setting.Location + " during the " + setting.TimePeriod + ", there lived a " + char1.Age + " year old " + char1.Profession + " named " + char1.Name + ".");
                     Console.WriteLine("One day, " + char1.Name + " met a " + char2.Age + " year old " + char2.Profession + " named " + char2.Name + ".");
-                    Console.WriteLine("However, they soon faced a problem: " + conflict.Problem + ".");
-                    Console.WriteLine("In the end, they managed to resolve it by: " + res.Solution + ".");
+                    Console.WriteLine("However, they soon faced a problem: " + conflict.Problem);
+                    Console.WriteLine("In the end, they managed to resolve it by: " + res.Solution);
                     break;
                 }
             }
