@@ -28,10 +28,10 @@ namespace HW1
         {
             StreamReader sr;
             string line = "";
+
+            sr = new StreamReader("../../../Setting.txt");
             try
             {
-                sr = new StreamReader("../../../Setting.txt");
-
                 // Read Settings
                 while ((line = sr.ReadLine()!) != null)
                 {
@@ -39,16 +39,23 @@ namespace HW1
                     string timePeriod = line.Substring(line.IndexOf('|') + 1);
                     settings.Add(new Setting(location, timePeriod));
                 }
-                sr.Close();
             }
             catch (Exception e)
             {
                 Console.WriteLine("Error reading Setting: " + e.Message);
             }
-            
+            finally
+            {
+                if (sr != null!)
+                {
+                    sr.Close();
+                }
+            }
+
+            sr = new StreamReader("../../../Actor.txt");
             try
             {
-                sr = new StreamReader("../../../Actor.txt");
+                
                 // Read Actors
                 while ((line = sr.ReadLine()!) != null)
                 {
@@ -60,31 +67,44 @@ namespace HW1
 
                     actors.Add(new Actor(name, profession, age));
                 }
-                sr.Close();
+                
             }
             catch (Exception e)
             {
                 Console.WriteLine("Error reading Actor: " + e.Message);
             }
+            finally
+            {
+                if (sr != null!)
+                {
+                    sr.Close();
+                }
+            }
 
+            sr = new StreamReader("../../../Conflict.txt");
             try
             {
-                sr = new StreamReader("../../../Conflict.txt");
                 // Read conflict
                 while ((line = sr.ReadLine()!) != null)
                 {
                     conflicts.Add(new Conflict(line));
                 }
-                sr.Close();
             }
             catch (Exception e)
             {
                 Console.WriteLine("Error reading Conflict: " + e.Message);
             }
+            finally
+            {
+                if (sr != null!)
+                {
+                    sr.Close();
+                }
+            }
 
+            sr = new StreamReader("../../../Resolution.txt");
             try
             {
-                sr = new StreamReader("../../../Resolution.txt");
                 // Read Resolution
                 while ((line = sr.ReadLine()!) != null)
                 {
@@ -92,11 +112,17 @@ namespace HW1
                     string solution = line.Substring(line.IndexOf('|') + 1);
                     resolutions.Add(new Resolution(type, solution));
                 }
-                sr.Close();
             }
             catch (Exception e)
             {
                 Console.WriteLine("Error reading Resolution: " + e.Message);
+            }
+            finally
+            {
+                if (sr != null!)
+                {
+                    sr.Close();
+                }
             }
 
         }
