@@ -1,3 +1,4 @@
 ﻿James Bond|Secret Agent|37
 Mario|Plumber|24
 Spongebob|Chef|38
+Gandalf|Wizard|50,000
