@@ -65,7 +65,7 @@ namespace HW1
                     line = line.Substring(line.IndexOf('|') + 1);
                     string profession = line;
 
-                    actors.Add(new Actor(name, profession, age));
+                    actors.Add(new Actor(name, age, profession));
                 }
                 
             }
@@ -136,8 +136,15 @@ namespace HW1
             // Select random elements from each list and print the story
             Random rand = new Random();
             Setting setting = settings[rand.Next(settings.Count)];
-            Actor char1 = actors[rand.Next(actors.Count)];
-            Actor char2 = actors[rand.Next(actors.Count)];
+            // Ensure char1 and char2 are different
+            int index1 = rand.Next(actors.Count);
+            Actor char1 = actors[index1];
+            int index2 = rand.Next(actors.Count);
+            while (index2 == index1)
+                index2 = rand.Next(actors.Count);
+
+            Actor char2 = actors[index2];
+
             Conflict conflict = conflicts[rand.Next(conflicts.Count)];
             foreach (Resolution res in resolutions)
             {
