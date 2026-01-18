@@ -14,6 +14,12 @@ namespace HW1
         private string age;
 
         // Constructor
+        /// <summary>
+        /// Constructs actor with corresponding name, profession age
+        /// </summary>
+        /// <param name="name">Name of actor</param>
+        /// <param name="profession">Profession of actor</param>
+        /// <param name="age">Age of actor</param>
         public Actor(string name, string profession, string age)
         {
             this.name = name;

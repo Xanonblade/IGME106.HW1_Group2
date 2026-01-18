@@ -11,15 +11,7 @@ namespace HW1
     /// </summary>
     internal class Resolution
     {
-        public enum ResolutionType
-        {
-            happy,
-            tragic,
-            romantic,
-            funny,
-            twist
-        }
-        public ResolutionType Type { get; private set; }
+        public string Type { get; private set; }
         public string Solution { get; private set; }
 
         /// <summary>
@@ -27,7 +19,7 @@ namespace HW1
         /// </summary>
         /// <param name="type"></param>
         /// <param name="solution"></param>
-        public Resolution(ResolutionType type, string solution)
+        public Resolution(string type, string solution)
         {
             Type = type;
             Solution = solution;

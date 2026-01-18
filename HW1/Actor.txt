@@ -2,3 +2,6 @@
 Mario|Plumber|24
 Spongebob|Chef|38
 Gandalf|Wizard|50,000
+Joe Biden|Former President|83
+Kirby|Unemployed|34
+Jensen Huang|Nvidia CEO|62

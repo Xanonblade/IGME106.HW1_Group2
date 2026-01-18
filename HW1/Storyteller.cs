@@ -19,7 +19,7 @@ namespace HW1
             resolutions = new List<Resolution>();
         }
 
-        public void ReadFile(string storyType)
+        public void ReadFile()
         {
             StreamReader sr = new StreamReader("../../../Setting.txt");
             string line = "";
@@ -31,17 +31,40 @@ namespace HW1
                 string timePeriod = line.Substring(line.IndexOf('|') + 1);
                 settings.Add(new Setting(location, timePeriod));
             }
+            sr.Close();
 
             sr = new StreamReader("../../../Actor.txt");
-
             // Read Actors
             while ((line = sr.ReadLine()!) != null)
             {
                 string name = line.Substring(0, line.IndexOf('|'));
-                string age = line.Substring(line.IndexOf('|') + 1);
-                string profession = line.Substring(line.IndexOf('|') + 1);
+                line = line.Substring(line.IndexOf('|') + 1);
+                string age = line.Substring(0, line.IndexOf('|'));
+                line = line.Substring(line.IndexOf('|') + 1);
+                string profession = line;
 
+                actors.Add(new Actor(name, profession, age));
             }
+            sr.Close();
+
+            sr = new StreamReader("../../../Conflict.txt");
+            // Read conflict
+            while ((line = sr.ReadLine()!) != null)
+            {
+                conflicts.Add(new Conflict(line));
+            }
+            sr.Close();
+
+            sr = new StreamReader("../../../Resolution.txt");
+            // Read Resolution
+            while ((line = sr.ReadLine()!) != null)
+            {
+                string type = line.Substring(0, line.IndexOf('|'));
+                string solution = line.Substring(line.IndexOf('|') + 1);
+                resolutions.Add(new Resolution(type, solution));
+            }
+            sr.Close();
         }
+
     }
 }
