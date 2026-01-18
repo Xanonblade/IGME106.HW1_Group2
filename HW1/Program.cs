@@ -27,38 +27,23 @@ namespace HW1
                 switch (userInput)
                 {
                     case "happy":
-                        Console.WriteLine("Story idea: ");
-                        Console.WriteLine("<Story with a happy ending>");
-                        Console.WriteLine();
                         // Run print method with 'happy' parameter
                         storyteller.PrintStory("happy");
 
                         break;
                     case "tragic":
-                        Console.WriteLine("Story idea: ");
-                        Console.WriteLine("<Story with a tragic ending>");
-                        Console.WriteLine();
                         // Run print method with 'tragic' parameter
                         storyteller.PrintStory("tragic");
                         break;
                     case "romantic":
-                        Console.WriteLine("Story idea: ");
-                        Console.WriteLine("<Story with a romantic ending>");
-                        Console.WriteLine();
                         // Run print method with 'romantic' parameter
                         storyteller.PrintStory("romantic");
                         break;
                     case "funny":
-                        Console.WriteLine("Story idea: ");
-                        Console.WriteLine("<Story with a funny ending>");
-                        Console.WriteLine();
                         // Run print method with 'funny' parameter
                         storyteller.PrintStory("funny");
                         break;
                     case "twist":
-                        Console.WriteLine("Story idea: ");
-                        Console.WriteLine("<Story with a twist ending>");
-                        Console.WriteLine();
                         // Run print method with 'twist' parameter
                         storyteller.PrintStory("twist");
                         break;
@@ -82,8 +67,7 @@ namespace HW1
                         storyteller.PrintStory(ending);
                         break;
                     default:
-                        Console.WriteLine("Invalid input, try again");
-                        Console.WriteLine();
+                        Console.WriteLine("Invalid input, try again\n");
                         break;
                 }
                 // Extra space for readability
