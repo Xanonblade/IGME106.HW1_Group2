@@ -154,31 +154,31 @@ namespace HW1
                     Console.WriteLine("One day, " + char1.Name + " met a " + char2.Age + " year old " + char2.Profession + " named " + char2.Name + ".");
                     Console.WriteLine("However, they soon faced a problem: " + conflict.Problem);
                     string resolution = res.Solution;
-                    if (res.Solution.IndexOf("@1") != -1)
+                    if (resolution.IndexOf("@1") != -1)
                     {
-                        resolution = res.Solution.Replace("@1", char1.Name);
+                        resolution = resolution.Replace("@1", char1.Name);
                     }
-                    if (res.Solution.IndexOf("#1") != -1)
+                    if (resolution.IndexOf("#1") != -1)
                     {
-                        resolution = res.Solution.Replace("#1", char2.Name);
+                        resolution = resolution.Replace("#1", char2.Name);
                     }
-                    if (res.Solution.IndexOf("@2") != -1)
+                    if (resolution.IndexOf("@2") != -1)
                     {
-                        resolution = res.Solution.Replace("@2", char1.Profession);
+                        resolution = resolution.Replace("@2", char1.Profession);
                     }
-                    if (res.Solution.IndexOf("#2") != -1)
+                    if (resolution.IndexOf("#2") != -1)
                     {
-                        resolution = res.Solution.Replace("#2", char1.Profession);
+                        resolution = resolution.Replace("#2", char1.Profession);
                     }
-                    if (res.Solution.IndexOf("@3") != -1)
+                    if (resolution.IndexOf("@3") != -1)
                     {
-                        resolution = res.Solution.Replace("@3", char1.Age);
+                        resolution = resolution.Replace("@3", char1.Age);
                     }
-                    if (res.Solution.IndexOf("#3") != -1)
+                    if (resolution.IndexOf("#3") != -1)
                     {
-                        resolution = res.Solution.Replace("#3", char1.Age);
+                        resolution = resolution.Replace("#3", char1.Age);
                     }
-                    Console.WriteLine("In the end, they managed to resolve it by: " + resolution);
+                    Console.WriteLine(resolution);
                     break;
                 }
             }
