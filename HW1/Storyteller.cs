@@ -150,7 +150,7 @@ namespace HW1
             {
                 if (res.Type == storyType)
                 {
-                    Console.WriteLine("Once upon a time in " + setting.Location + " during the " + setting.TimePeriod + ", there lived a " + char1.Age + " year old " + char1.Profession + " named " + char1.Name + ".");
+                    Console.WriteLine("Once upon a time in " + setting.Location + " during the year " + setting.TimePeriod + ", there lived a " + char1.Age + " year old " + char1.Profession + " named " + char1.Name + ".");
                     Console.WriteLine("One day, " + char1.Name + " met a " + char2.Age + " year old " + char2.Profession + " named " + char2.Name + ".");
                     Console.WriteLine("However, they soon faced a problem: " + conflict.Problem);
                     Console.WriteLine("In the end, they managed to resolve it by: " + res.Solution);
