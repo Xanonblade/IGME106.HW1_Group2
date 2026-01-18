@@ -11,7 +11,7 @@ namespace HW1
         {
             // Create Storyteller Object and read files
             Storyteller storyteller = new Storyteller();
-            storyteller.ReadFile("Adventure");
+            storyteller.ReadFile();
 
             // Run program for user to generate stories
             bool running = true;
