@@ -82,8 +82,7 @@ namespace HW1
                         storyteller.PrintStory(ending);
                         break;
                     default:
-                        Console.WriteLine("Invalid input, try again");
-                        Console.WriteLine();
+                        Console.WriteLine("Invalid input, try again\n");
                         break;
                 }
                 // Extra space for readability
