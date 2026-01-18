@@ -150,9 +150,35 @@ namespace HW1
             {
                 if (res.Type == storyType)
                 {
-                    Console.WriteLine("Once upon a time in " + setting.Location + " during the year " + setting.TimePeriod + ", there lived a " + char1.Age + " year old " + char1.Profession + " named " + char1.Name + ".");
-                    Console.WriteLine("One day, " + char1.Name + " met a " + char2.Age + " year old " + char2.Profession + " named " + char2.Name + ".");
-                    Console.WriteLine("However, they soon faced a problem: " + conflict.Problem);
+                    Console.Write("Once upon a time in " + setting.Location + " during the year " + setting.TimePeriod + ", there lived a " + char1.Age + " year old " + char1.Profession + " named " + char1.Name + ".");
+                    Console.Write("One day, " + char1.Name + " met a " + char2.Age + " year old " + char2.Profession + " named " + char2.Name + ".");
+                    string conf = conflict.Problem;
+                    if (conf.IndexOf("@1") != -1)
+                    {
+                        conf = conf.Replace("@1", char1.Name);
+                    }
+                    if (conf.IndexOf("#1") != -1)
+                    {
+                        conf = conf.Replace("#1", char2.Name);
+                    }
+                    if (conf.IndexOf("@2") != -1)
+                    {
+                        conf = conf.Replace("@2", char1.Profession);
+                    }
+                    if (conf.IndexOf("#2") != -1)
+                    {
+                        conf = conf.Replace("#2", char1.Profession);
+                    }
+                    if (conf.IndexOf("@3") != -1)
+                    {
+                        conf = conf.Replace("@3", char1.Age);
+                    }
+                    if (conf.IndexOf("#3") != -1)
+                    {
+                        conf = conf.Replace("#3", char1.Age);
+                    }
+                    Console.Write(conf);
+
                     string resolution = res.Solution;
                     if (resolution.IndexOf("@1") != -1)
                     {
@@ -178,7 +204,7 @@ namespace HW1
                     {
                         resolution = resolution.Replace("#3", char1.Age);
                     }
-                    Console.WriteLine(resolution);
+                    Console.Write(resolution);
                     break;
                 }
             }
