@@ -6,11 +6,13 @@ namespace HW1
 {
     internal class Storyteller
     {
+        // Fields
         private List<Setting> settings;
         private List<Actor> actors;
         private List<Conflict> conflicts;
         private List<Resolution> resolutions;
 
+        // Constructor
         public Storyteller()
         {
             settings = new List<Setting>();
@@ -19,6 +21,9 @@ namespace HW1
             resolutions = new List<Resolution>();
         }
 
+        /// <summary>
+        /// Reads all of the files and stores their information in a corresponding list
+        /// </summary>
         public void ReadFile()
         {
             StreamReader sr = new StreamReader("../../../Setting.txt");
