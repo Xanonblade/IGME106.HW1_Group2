@@ -13,11 +13,11 @@ namespace HW1
     {
         public enum ResolutionType
         {
-            Compromise,
-            Collaboration,
-            Accommodation,
-            Avoidance,
-            Competition
+            happy,
+            tragic,
+            romantic,
+            funny,
+            twist
         }
         public ResolutionType Type { get; private set; }
         public string Solution { get; private set; }
