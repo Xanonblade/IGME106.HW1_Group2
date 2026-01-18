@@ -27,18 +27,30 @@ namespace HW1
                 switch (userInput)
                 {
                     case "happy":
+                        Console.WriteLine("Story idea: ");
+                        Console.WriteLine("<Story with a happy ending>");
                         // Run print method with 'happy' parameter
+                        //Resolution.ResolutionType.happy;
+
                         break;
                     case "tragic":
+                        Console.WriteLine("Story idea: ");
+                        Console.WriteLine("<Story with a tragic ending>");
                         // Run print method with 'tragic' parameter
                         break;
                     case "romantic":
+                        Console.WriteLine("Story idea: ");
+                        Console.WriteLine("<Story with a romantic ending>");
                         // Run print method with 'romantic' parameter
                         break;
                     case "funny":
+                        Console.WriteLine("Story idea: ");
+                        Console.WriteLine("<Story with a funny ending>");
                         // Run print method with 'funny' parameter
                         break;
                     case "twist":
+                        Console.WriteLine("Story idea: ");
+                        Console.WriteLine("<Story with a twist ending>");
                         // Run print method with 'twist' parameter
                         break;
                     case "any ending":
@@ -58,7 +70,19 @@ namespace HW1
                             ending = "twist";
                         // Run print method with 'ending' parameter
                         break;
+                    default:
+                        Console.WriteLine("Invalid input, try again");
+                        Console.WriteLine();
+                        break;
                 }
+                // Extra space for readability
+                Console.WriteLine();
+
+                // Prompt user to continue or exit
+                Console.WriteLine("Would you like another story? ('yes' or 'no')");
+                string continueInput = Console.ReadLine()!.ToLower();
+                if (continueInput == "no")
+                    running = false;
             }
         }
     }
