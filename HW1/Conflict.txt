@@ -1,5 +1,5 @@
-﻿had to go to the dentist's office to get his wisdom teeth removed.
-was too busy to do their homework.
-got locked out of their dorm room. Their roommate was gone too.
-didn't like the snow and had to enter the blistering snowstorm.
-was hit on the head with a stray baseball.
+﻿@1 had to go to the dentist's office to get his wisdom teeth removed.
+#1 was too busy to do their homework.
+They both got locked out of their dorm room. Their roommates were gone too.
+@1 didn't like the snow and had to enter the blistering snowstorm.
+@1 was hit on the head with a stray baseball.
